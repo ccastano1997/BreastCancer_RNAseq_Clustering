@@ -1,0 +1,56 @@
+
+Unsupervised Clustering of Breast Cancer Gene Expression Data
+
+Introduction
+
+This project aimed to explore gene expression patterns in breast cancer using K-means clustering and analyze the resulting clusters in the context of clinical data. The goal was to identify potential subtypes of breast cancer with distinct molecular and clinical characteristics.
+
+Dataset
+
+The dataset used was GSE113863, obtained from the Gene Expression Omnibus (GEO) database. This dataset contains targeted RNA-seq data from 483 breast cancer samples, including a 72-gene panel and associated clinical information.
+
+Methodology
+
+The analysis involved the following steps:
+
+Data Loading: The normalized gene expression data was loaded from the GSE113863_dwd_normalized_std_expression.csv file.
+
+Clustering: K-means clustering was performed to group the samples based on their gene expression profiles. The elbow method and silhouette analysis were used to explore the optimal number of clusters (k).
+
+Cluster Analysis:
+
+PAM50 Comparison: The cluster assignments were compared to the PAM50 molecular subtypes using metrics like the Adjusted Rand Index (ARI), Normalized Mutual Information (NMI), and V-measure.
+Clinical Correlation: The clusters were analyzed in the context of clinical data, including distant metastasis-free survival (DMFS) time. ANOVA tests and Tukey's HSD post-hoc tests were used to identify significant differences between the clusters.
+Differential Gene Expression: Differentially expressed genes between the clusters were identified using ANOVA tests and visualized using heatmaps and volcano plots.
+Findings
+
+Optimal k: The elbow method and silhouette analysis suggested k=2 or k=3 as potential optimal values for the number of clusters.
+
+PAM50 Agreement: The clusters showed moderate agreement with the PAM50 subtypes (ARI=0.548, NMI=0.569, V-measure=0.569), indicating that the clustering captured some of the known molecular subtypes of breast cancer.
+
+DMFS Analysis:
+
+The ANOVA test revealed a statistically significant difference in DMFS time between the clusters (F-statistic = 6.69, p-value = 0.001).
+Tukey's HSD post-hoc tests showed significant differences between Cluster 0 and Cluster 1, and between Cluster 1 and Cluster 2. Cluster 1 appeared to have a worse prognosis (lower DMFS time) compared to the other clusters.
+Cluster Characteristics:
+
+Cluster 0: Enriched for the Luminal A subtype, with high expression of ESR1, PGR, and FOXA1, suggesting a hormone-sensitive subtype.
+Cluster 1: Enriched for the Basal subtype, with high expression of FOXC1, MIA, KRT5, and KRT17, potentially indicating a more aggressive subtype.
+Cluster 2: Showed a mixed subtype distribution, with high expression of ERBB2 (HER2), CXCL9, and GZMK, suggesting an immune-related component.
+Top Differentially Expressed Genes:
+
+The analysis identified several differentially expressed genes between the clusters, including FOXA1, MLPH, SCUBE2, FOXC1, MAPT, ESR1, NAT1, and SLC39A6. These genes might play important roles in the different molecular subtypes and contribute to the observed differences in clinical outcomes.
+Conclusions
+
+This project demonstrates the application of unsupervised machine learning techniques to analyze gene expression data and identify potential subtypes of breast cancer with different clinical outcomes. The findings suggest that K-means clustering can capture biologically relevant patterns in the data and provide insights into the molecular and clinical heterogeneity of breast cancer.
+
+Future Directions
+
+This project can be further extended by:
+
+Pathway Analysis: Perform pathway enrichment analysis (e.g., GO, KEGG) to identify biological pathways associated with each cluster.
+Deeper Clinical Analysis: Explore the relationship between clusters and other clinical variables, such as tumor grade and stage.
+Survival Analysis: Conduct more detailed survival analysis (e.g., Kaplan-Meier curves, Cox regression) to assess the prognostic value of the clusters.
+Validation: Validate the findings on an independent breast cancer dataset.
+Literature Search: Research the top differentially expressed genes to understand their roles in breast cancer and their potential as drug targets.
+This analysis provides a foundation for further investigation into the molecular subtypes of breast cancer and their clinical implications, potentially leading to improved diagnosis, prognosis, and treatment strategies.
